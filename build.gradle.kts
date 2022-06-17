@@ -75,12 +75,16 @@ qodana {
 
 // Download Kipper.g4 file
 tasks.register("downloadGrammarFile"){
-    val path = "./src/main/antlr/Kipper.g4"
     val sourceUrl = properties("kipperGrammarFile")
-    download(sourceUrl, path)
+    val sourceSetPath = "src/sourceSet/antlr/Kipper.g4"
+    val mainPath = "src/sourceSet/antlr/Kipper.g4"
+
+    // Download grammar file into the /src/ folder
+    download(sourceUrl, sourceSetPath)
+    download(sourceUrl, mainPath)
 }
 
-fun download(url : String, path : String){
+fun download(url : String, path : String) {
     val destFile = File(path)
     ant.invokeMethod("get", mapOf("src" to url, "dest" to destFile))
 }
