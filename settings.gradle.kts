@@ -1,1 +1,1 @@
-rootProject.name = "Kipper-IntelliJ-Plugin"
+rootProject.name = "Kipper"

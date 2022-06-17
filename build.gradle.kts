@@ -1,6 +1,12 @@
 import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+buildscript {
+    repositories {
+        google()
+    }
+}
+
 fun properties(key: String) = project.findProperty(key).toString()
 
 plugins {
@@ -14,14 +20,33 @@ plugins {
     id("org.jetbrains.changelog") version "1.3.1"
     // Gradle Qodana Plugin
     id("org.jetbrains.qodana") version "0.1.13"
+    // Antlr4 Plugin for Gradle
+    id("antlr")
 }
 
 group = properties("pluginGroup")
 version = properties("pluginVersion")
 
+// Apply primary plugins
+apply(plugin = "java")
+apply(plugin = "org.jetbrains.kotlin.jvm")
+
+// Apply Antlr4 plugin
+apply(plugin = "antlr")
+
 // Configure project's dependencies
 repositories {
     mavenCentral()
+}
+
+// Dependencies for the plugin
+dependencies {
+    antlr(properties("antlr4Version")) {
+        exclude(group = "com.ibm.icu", module = "icu4j")
+    }
+    implementation(group = "org.antlr", name="antlr4-intellij-adaptor", version="0.1")
+    testImplementation(group = "junit", name = "junit", version = "4.13.2")
+    testImplementation(group = "org.mockito", name = "mockito-core", version = "4.6.1")
 }
 
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
@@ -48,6 +73,18 @@ qodana {
     showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
 }
 
+// Download Kipper.g4 file
+tasks.register("downloadGrammarFile"){
+    val path = "./src/main/antlr/Kipper.g4"
+    val sourceUrl = properties("kipperGrammarFile")
+    download(sourceUrl, path)
+}
+
+fun download(url : String, path : String){
+    val destFile = File(path)
+    ant.invokeMethod("get", mapOf("src" to url, "dest" to destFile))
+}
+
 tasks {
     // Set the JVM compatibility versions
     properties("javaVersion").let {
@@ -58,6 +95,16 @@ tasks {
         withType<KotlinCompile> {
             kotlinOptions.jvmTarget = it
         }
+    }
+
+    // Generate Antlr4 Lexer and Parser
+    generateGrammarSource {
+        maxHeapSize = "64m"
+        arguments = arguments + listOf("-visitor", "-long-messages")
+    }
+
+    compileKotlin {
+        dependsOn(generateGrammarSource)
     }
 
     wrapper {

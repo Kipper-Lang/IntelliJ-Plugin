@@ -7,12 +7,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.lunaklatzer.kipperintellijplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.lunaklatzer.kipperintellijplugin.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.kipper.plugin.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.kipper.plugin.services.MyProjectService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.lunaklatzer.kipperintellijplugin.listeners.MyProjectManagerListener"
+        <listener class="com.kipper.plugin.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

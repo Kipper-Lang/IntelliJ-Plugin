@@ -1,7 +1,7 @@
-package com.github.lunaklatzer.kipperintellijplugin.services
+package com.kipper.plugin.services
 
 import com.intellij.openapi.project.Project
-import com.github.lunaklatzer.kipperintellijplugin.MyBundle
+import com.kipper.plugin.MyBundle
 
 class MyProjectService(project: Project) {
 

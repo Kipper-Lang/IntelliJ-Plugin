@@ -1,9 +1,9 @@
-package com.github.lunaklatzer.kipperintellijplugin.listeners
+package com.kipper.plugin.listeners
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManagerListener
-import com.github.lunaklatzer.kipperintellijplugin.services.MyProjectService
+import com.kipper.plugin.services.MyProjectService
 
 internal class MyProjectManagerListener : ProjectManagerListener {
 

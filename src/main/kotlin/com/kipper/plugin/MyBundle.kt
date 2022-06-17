@@ -1,4 +1,4 @@
-package com.github.lunaklatzer.kipperintellijplugin
+package com.kipper.plugin
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls
