@@ -77,7 +77,7 @@ qodana {
 tasks.register("downloadGrammarFile"){
     val sourceUrl = properties("kipperGrammarFile")
     val sourceSetPath = "src/sourceSet/antlr/Kipper.g4"
-    val mainPath = "src/sourceSet/antlr/Kipper.g4"
+    val mainPath = "src/main/antlr/Kipper.g4"
 
     // Download grammar file into the /src/ folder
     download(sourceUrl, sourceSetPath)
