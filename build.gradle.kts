@@ -2,6 +2,9 @@ import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
+    extra.apply {
+        set("kotlinVersion", "1.6.10")
+    }
     repositories {
         google()
     }
