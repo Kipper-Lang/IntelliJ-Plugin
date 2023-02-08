@@ -76,15 +76,22 @@ qodana {
     showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
 }
 
-// Download Kipper.g4 file
+// Download KipperLexer.g4 and KipperParser.g4 grammar files from the GitHub repository
 tasks.register("downloadGrammarFile"){
-    val sourceUrl = properties("kipperGrammarFile")
-    val sourceSetPath = "src/sourceSet/antlr/Kipper.g4"
-    val mainPath = "src/main/antlr/Kipper.g4"
+    val lexerSourceUrl = properties("kipperLexerGrammarFile")
+    val parserSourceUrl = properties("kipperParserGrammarFile")
+
+    // Paths for the grammar files
+    val sourceLexerSetPath = "src/sourceSet/antlr/KipperLexer.g4"
+    val sourceParserSetPath = "src/sourceSet/antlr/KipperParser.g4"
+    val mainLexerPath = "src/main/antlr/KipperLexer.g4"
+    val mainParserPath = "src/main/antlr/KipperParser.g4"
 
     // Download grammar file into the /src/ folder
-    download(sourceUrl, sourceSetPath)
-    download(sourceUrl, mainPath)
+    download(lexerSourceUrl, sourceLexerSetPath)
+    download(parserSourceUrl, sourceParserSetPath)
+    download(lexerSourceUrl, mainLexerPath)
+    download(parserSourceUrl, mainParserPath)
 }
 
 fun download(url : String, path : String) {
