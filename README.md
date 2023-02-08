@@ -42,7 +42,7 @@ platform.
 
 ![License](https://img.shields.io/github/license/Luna-Klatzer/Kipper-IntelliJ-Plugin?color=cyan)
 
-Copyright (C) 2021-2022 Luna Klatzer
+Copyright (C) 2021-2023 Luna Klatzer
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
