@@ -17,14 +17,21 @@ platform.
 
 - [x] Add download of the Kipper.g4 grammar file from the main repo.
 - [x] Add automatic generation of Antlr4 Lexer and Parser in the gradle build.
-- [x] Add LICENSE for repository.
-- [ ] Finish setup of project structure.
+- [x] Add LICENSE for the repository.
+- [ ] Finish setup of the project structure.
 - [ ] Implement syntax highlighting based on the Antlr4 Lexer and Parser.
 - [ ] Add tests for the IntelliJ plugin.
-- [ ] Test plugin funtionality in IntelliJ IDEs.
-- [ ] Prepare for first initial release.
+- [ ] Test plugin functionality in IntelliJ IDEs.
+- [ ] Prepare for the first initial release.
 - [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
 - [ ] Upload plugin to the JetBrains marketplace.
+
+## Goals
+
+- [ ] Add syntax highlighting for the Kipper language (version-independent).
+- [ ] Add support for the currently installed Kipper version (allow for dynamic recognition for the specific version).
+- [ ] Perform code analysis by calling up the locally installed Kipper package.
+- [ ] Report warnings and errors to the IDE.
 
 ## Installation
 
