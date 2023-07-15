@@ -2,10 +2,10 @@
 
 # Kipper IntelliJ Plugin
 
-![Build](https://github.com/Luna-Klatzer/Kipper-IntelliJ-Plugin/workflows/Build/badge.svg)
+![Build](https://github.com/Kipper-Lang/Kipper-IntelliJ-Plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![License](https://img.shields.io/github/license/Luna-Klatzer/Kipper-IntelliJ-Plugin?color=cyan)](https://github.com/Luna-Klatzer/Kipper-IntelliJ-Plugin/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/Kipper-Lang/Kipper-IntelliJ-Plugin?color=cyan)](https://github.com/Kipper-Lang/Kipper-IntelliJ-Plugin/blob/main/LICENSE)
 
 <!-- Plugin description -->
 The language plugin for the Kipper programming language, which provides language support for the JetBrains IntelliJ 
